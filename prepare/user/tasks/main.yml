@@ -1,0 +1,31 @@
+- name: Create group
+  group:
+    name: "{{ item }}"
+  with_flattened:
+  - user_groups
+  - "{{ user_group | default(user_name, true) | default(app_user, true) }}"
+
+- name: Create user
+  user:
+    name: "{{ user_name | default(app_user, true) }}"
+    comment: "{{ user_comment }}"
+    password: "{{ user_password | default('', true) }}"
+    shell: "{{ user_shell | default('/bin/sh', true) }}"
+    groups: "{{ user_groups | join(',') }}"
+    group: "{{ user_group | default((user_groups | default([user_name], true) | first), true) | default(app_user, true) }}"
+
+- name: SSH Authorized Key
+  authorized_key:
+    user: "{{ user_name | default(app_user, true) }}"
+    key: "{{ lookup('env','AUTHORIZED_KEY') | default(user_authorized_key, true) }}"
+  when: (not user_password) or (lookup('env','AUTHORIZED_KEY') != '') or user_authorized_key
+
+- name: Add default login directory for user
+  lineinfile:
+    dest: /home/deploy/.bashrc
+    line: "cd {{ app_path }}"
+    regexp: "^cd {{ app_path }}"
+    owner: deploy
+    state: present
+    insertafter: EOF
+    create: true

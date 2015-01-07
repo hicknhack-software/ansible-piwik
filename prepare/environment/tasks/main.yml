@@ -1,0 +1,14 @@
+# Install general dependencies
+- name: "Install general dependencies"
+  apt: name={{ item }} update_cache=yes state=latest
+  with_items:
+    - 'unzip'
+    - 'vim'
+
+- name: Create folder
+  file:
+    path: "{{ deploy_path | default(app_path, true) }}{{ item }}"
+    owner: "{{ deploy_owner | default(app_user, true) }}"
+    group: "{{ deploy_group | default(app_user, true) }}"
+    state: directory
+  with_items: deploy_create_folders

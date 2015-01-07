@@ -1,0 +1,6 @@
+deploy_create_folders:
+- ''
+- /tmp
+- /releases
+- /shared
+- /shared/config

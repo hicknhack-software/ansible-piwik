@@ -1,0 +1,28 @@
+- name: Add repo
+  apt_repository:
+    repo: 'ppa:nginx/stable'
+
+- name: Install
+  apt:
+    name: nginx
+
+- name: Configure
+  template:
+    src: piwik.nginx.conf.j2
+    dest: /etc/nginx/sites-available/piwik
+
+- name: Link nginx sites
+  file:
+    path: /etc/nginx/sites-enabled/piwik
+    src: /etc/nginx/sites-available/piwik
+    state: link
+    force: yes
+  notify:
+  - restart nginx
+
+- name: Disable the default config
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  notify:
+  - restart nginx

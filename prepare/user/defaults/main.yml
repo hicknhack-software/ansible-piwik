@@ -1,0 +1,10 @@
+user_name: # {{ app_user }}
+user_comment: Ansible User
+user_password: ''
+user_shell: /bin/bash
+user_authorized_key: "{{ lookup('file', 'id_rsa.pub') }}"
+user_groups: []
+# - {{ user_name }}
+user_group: # {{ user_groups|first }}
+
+user_env: {}

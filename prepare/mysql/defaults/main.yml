@@ -1,0 +1,7 @@
+mysql_host: 127.0.0.1
+mysql_admin_user: root
+mysql_admin_pass: s3cR37p1w1k
+mysql_piwik_user: piwik
+mysql_piwik_pass: s3cR37p1w1k
+mysql_piwik_db: piwik_db
+mysql_service: mysql
