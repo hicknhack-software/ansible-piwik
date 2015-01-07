@@ -59,7 +59,7 @@ This repository provides an up and running role for your ansible installation. J
   
   - hosts: piwik
     sudo: true
-    sudo_user: deploy
+    sudo_user: "{{ app_user }}"
     vars:
       gather_facts: true
       profile: '. $HOME/.profile && sh $HOME/.profile && '
