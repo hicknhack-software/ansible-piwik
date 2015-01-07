@@ -1,4 +1,4 @@
-# Ansible Role to install piwik
+# Ansible Role to install Piwik
 
 This repository provides an up and running role for your Ansible installation. Just clone this repository into the roles directory of your Ansible installation. 
 
