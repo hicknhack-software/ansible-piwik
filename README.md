@@ -1,15 +1,15 @@
 # Ansible Role to install piwik
 
-This repository provides an up and running role for your ansible installation. Just clone this repository into the roles directory of your ansible installation. 
+This repository provides an up and running role for your Ansible installation. Just clone this repository into the roles directory of your Ansible installation. 
 
 ## Installation
-1. Clone this repository into your **roles** directory of your ansible installation via:
+1. Clone this repository into your **roles** directory of your Ansible installation via:
 
    ```git clone https://github.com/hicknhack-software/ansible-piwik.git piwik```
    
    **Don't forget `piwik` after the clone command to ensure the installation into the piwik folder.**
 2. Generate a ssh key. And copy your public ssh key (id_rsa.pub) into the parent folder. Name your file *id_rsa.pub*.
-3. Add a hosts directory with your host file, e.g. `vagrant` with the following credentials and variables for an example installation on your vagrant machine:
+3. Add a hosts directory with your host file, e.g. `vagrant` with the following credentials and variables for an example installation on your Vagrant machine:
     
   ```
   [piwik]
@@ -45,7 +45,7 @@ This repository provides an up and running role for your ansible installation. J
   deploy_group: # {{ app_user }}
   ```
 
-5. Add a ansible playbook with the following example content:
+5. Add a Ansible playbook with the following example content:
 
   ```
   - hosts: piwik
