@@ -13,8 +13,8 @@ salt = "{{ mysql_piwik_salt }}"
 trusted_hosts[] = "{{ piwik_trusted_host }}"
 
 ; Fix for nginx proxys or similar:
-;proxy_client_headers[] = HTTP_X_FORWARDED_FOR
-proxy_client_headers[] = HTTP_X_REAL_IP
+proxy_client_headers[] = HTTP_X_FORWARDED_FOR
+proxy_host_headers[] = HTTP_X_FORWARDED_HOST
 
 [PluginsInstalled]
 PluginsInstalled[] = "Login"
