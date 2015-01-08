@@ -10,4 +10,3 @@ mysql_admin_pass: s3cR37p1w1k
 mysql_piwik_user: piwik
 mysql_piwik_pass: s3cR37p1w1k
 mysql_piwik_db: piwik_db
-mysql_piwik_salt: dJvCKkxdRFyVUKeafTPiXvqwnD93JViS

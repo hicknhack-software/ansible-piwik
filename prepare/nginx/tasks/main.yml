@@ -6,9 +6,14 @@
   apt:
     name: nginx
 
-- name: Configure
+- name: Configure nginx
   template:
-    src: piwik.nginx.conf.j2
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+
+- name: Configure piwiks virtual host
+  template:
+    src: nginx-site-piwik.j2
     dest: /etc/nginx/sites-available/piwik
 
 - name: Link nginx sites

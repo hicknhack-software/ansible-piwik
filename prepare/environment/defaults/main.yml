@@ -4,3 +4,5 @@ deploy_create_folders:
 - /releases
 - /shared
 - /shared/config
+
+mysql_piwik_salt: dJvCKkxdRFyVUKeafTPiXvqwnD93JViS

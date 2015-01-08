@@ -12,3 +12,8 @@
     group: "{{ deploy_group | default(app_user, true) }}"
     state: directory
   with_items: deploy_create_folders
+
+- name: Configure
+  template:
+    src: config.ini.php.j2
+    dest: "{{ deploy_path | default(app_path, true) }}/shared/config/config.ini.php"

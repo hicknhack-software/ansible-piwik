@@ -12,6 +12,10 @@ charset = "utf8"
 salt = "{{ mysql_piwik_salt }}"
 trusted_hosts[] = "{{ piwik_trusted_host }}"
 
+; Fix for nginx proxys or similar:
+;proxy_client_headers[] = HTTP_X_FORWARDED_FOR
+proxy_client_headers[] = HTTP_X_REAL_IP
+
 [PluginsInstalled]
 PluginsInstalled[] = "Login"
 PluginsInstalled[] = "CoreAdminHome"

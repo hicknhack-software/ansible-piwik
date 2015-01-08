@@ -15,11 +15,6 @@
 - name: Extract archive
   unarchive: src={{ app_path }}/tmp/piwik.zip dest={{ app_path }}/tmp
 
-- name: Configure
-  template:
-    src: config.ini.php.j2
-    dest: "{{ deploy_path | default(app_path, true) }}/shared/config/config.ini.php"
-
 - name: Copy files to destiny
   command: mv {{ app_path }}/tmp/piwik {{ app_path }}/releases/{{ RELEASE_ID }}/
 
