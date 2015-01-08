@@ -35,10 +35,13 @@ server {
   }
 
   # Relay all index.php requests to fastcgi.
-  location ~* ^/(?:index|piwik)\.php$ {
+  location ~* ^/(?:info|index|piwik)\.php$ {
     fastcgi_pass unix:/var/run/php5-fpm.sock;
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_param REMOTE_ADDR $http_x_real_ip;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     include fastcgi_params;
   }
 
