@@ -66,7 +66,6 @@ This repository provides an up and running role for your Ansible installation. J
     sudo_user: "{{ app_user }}"
     vars:
       gather_facts: true
-      profile: '. $HOME/.profile && sh $HOME/.profile && '
       was_provisioned: "{{ provisioned is defined }}"
     roles:
       - role: piwik/install
